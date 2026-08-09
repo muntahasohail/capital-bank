@@ -46,7 +46,7 @@ const ManagerDashboard = () => {
       <aside style={s.sidebar}>
         <div style={s.sidebarBrand}>
           <span style={s.brandIcon}>🏦</span>
-          <span style={s.brandName}>Bank <span style={s.brandAccent}>Alfalah</span></span>
+          <span style={s.brandName}>Capital Bank</span>
         </div>
         <p style={s.roleTag}>Manager Portal</p>
         <nav style={s.sideNav}>

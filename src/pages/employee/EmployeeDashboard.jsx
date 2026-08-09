@@ -55,8 +55,7 @@ const EmployeeDashboard = () => {
       <div style={s.page}>
         <aside style={s.sidebar}>
           <div style={s.sidebarBrand}>
-            <span style={s.brandIcon}>🏦</span>
-            <span style={s.brandName}>Bank <span style={s.brandAccent}>Alfalah</span></span>
+            <span style={s.brandName}>Capital Bank</span>
           </div>
           <p style={s.roleTag}>Employee Portal</p>
           <div style={s.employeeInfo}>
