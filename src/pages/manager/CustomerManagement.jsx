@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/footer';
 
 const customers = [
   { id: 1, name: 'Ahmed Raza', email: 'ahmed@gmail.com', balance: 1250000, loans: 2, transactions: 14, status: 'Active' },
@@ -20,7 +22,9 @@ const CustomerManagement = () => {
   );
 
   return (
-    <div style={s.page}>
+    <div style={s.wrapper}>
+      <Navbar />
+      <div style={s.page}>
       <div style={s.header}>
         <button style={s.backBtn} onClick={() => navigate('/manager/dashboard')}>← Dashboard</button>
         <div>
@@ -82,12 +86,15 @@ const CustomerManagement = () => {
           )}
         </div>
       </div>
+      </div>
+      <Footer />
     </div>
   );
 };
 
 const s = {
-  page: { minHeight: '100vh', background: '#060f1e', padding: '2.5rem 3rem', fontFamily: 'sans-serif' },
+  wrapper: { display: 'flex', flexDirection: 'column', background: '#060f1e', minHeight: '100vh' },
+  page: { flex: 1, padding: '2.5rem 3rem', paddingTop: 'calc(80px + 2.5rem)', fontFamily: 'sans-serif' },
   header: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem', gap: '1rem' },
   backBtn: { background: 'transparent', border: '1px solid rgba(240,192,64,0.3)', color: '#f0c040', padding: '8px 16px', borderRadius: '8px', cursor: 'pointer', fontSize: '0.85rem', flexShrink: 0 },
   title: { fontSize: '1.8rem', fontWeight: '800', color: '#fff', fontFamily: 'Georgia, serif', margin: 0 },
