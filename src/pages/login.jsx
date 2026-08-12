@@ -50,7 +50,7 @@ const Login = () => {
         <div style={s.imageOverlay}>
           <div style={s.overlayContent}>
             <p style={s.overlayTag}>Welcome to</p>
-            <h1 style={s.overlayTitle}>Capital Bank</h1>
+            <h1 style={s.overlayTitle}>CAPITAL <span style={s.overlayHead}>BANK</span></h1>
             <div style={s.overlayDivider} />
             <p style={s.overlayDesc}>
               Trusted by over <span style={s.gold}>1,100 branches</span> across{' '}
@@ -69,8 +69,8 @@ const Login = () => {
       <div style={s.formPanel}>
         <div style={s.formCard}>
           <div style={s.brandRow}>
-            <span style={s.brandIcon}>🏦</span>
             <span style={s.brandName}>Capital <span style={s.brandAccent}>Bank</span></span>
+            <div style={s.brandDivider} />
           </div>
 
           <h2 style={s.title}>Welcome Back</h2>
@@ -139,25 +139,27 @@ const s = {
   imageOverlay: {
     position: 'absolute', inset: 0,
     background: 'linear-gradient(135deg, rgba(6,15,30,0.85) 0%, rgba(10,20,40,0.6) 60%, rgba(6,15,30,0.4) 100%)',
-    display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4rem',
+    display: 'flex', alignItems: 'flex-start', justifyContent: 'center', padding: '5rem 4rem 3rem',
   },
-  overlayContent: { maxWidth: '480px' },
-  overlayTag: { fontSize: '0.78rem', letterSpacing: '5px', textTransform: 'uppercase', color: '#f0c040', fontWeight: '600', marginBottom: '0.8rem' },
-  overlayTitle: { fontSize: '3.8rem', fontWeight: '900', color: '#fff', fontFamily: '"Palatino Linotype", Georgia, serif', margin: '0 0 1.2rem', lineHeight: 1.1 },
-  overlayDivider: { width: '70px', height: '4px', background: 'linear-gradient(90deg, #f0c040, transparent)', borderRadius: '2px', marginBottom: '1.5rem' },
-  overlayDesc: { fontSize: '1.05rem', color: '#b0c4d8', lineHeight: '1.8', marginBottom: '2rem' },
+  overlayContent: { maxWidth: '480px', marginTop: '1rem' },
+  overlayTag: { fontSize: '0.998rem', letterSpacing: '5px', textTransform: 'uppercase', color: '#f0c040', fontWeight: '600', marginBottom: '1.5rem' },
+  overlayTitle: { fontSize: '3.3rem', fontWeight: '900', color: '#fff', fontFamily: '"Palatino Linotype", Georgia, serif', margin: '0 0  1.9rem', lineHeight: 1.1 },
+  overlayHead: { color: '#f0c040', fontStyle: 'italic' },
+  overlayDivider: { width: '70px', height: '4px', background: 'linear-gradient(90deg, #f0c040, transparent)', borderRadius: '2px', marginBottom: '1.9rem' },
+  overlayDesc: { fontSize: '1.3rem', color: '#b0c4d8',fontStyle: 'italic' , lineHeight: '1.8', marginBottom: '2rem' },
   gold: { color: '#f0c040', fontWeight: '700' },
   badgeRow: { display: 'flex', gap: '0.8rem', flexWrap: 'wrap' },
   badge: { background: 'rgba(240,192,64,0.1)', border: '1px solid rgba(240,192,64,0.3)', color: '#f0c040', padding: '6px 16px', borderRadius: '20px', fontSize: '0.82rem', fontWeight: '700' },
 
   // Right panel
-  formPanel: { flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '3rem 2rem', background: 'linear-gradient(160deg, #0a1628 0%, #060f1e 100%)' },
-  formCard: { width: '100%', maxWidth: '420px' },
-  brandRow: { display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '2.5rem' },
+  formPanel: { flex: 1, display: 'flex', alignItems: 'flex-start', justifyContent: 'center', padding: '4rem 2rem 2rem', background: 'linear-gradient(160deg, #0a1628 0%, #060f1e 100%)' },
+  formCard: { width: '100%', maxWidth: '420px', marginTop: '1rem' },
+  brandRow: { display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '1rem', marginBottom: '2.5rem' },
   brandIcon: { fontSize: '1.8rem' },
-  brandName: { fontSize: '1.3rem', fontWeight: '800', color: '#fff', fontFamily: 'Georgia, serif', letterSpacing: '1px', textTransform: 'uppercase' },
+  brandName: { fontSize: '1.999rem', fontWeight: '800', color: '#fff', fontFamily: 'Georgia, serif', letterSpacing: '1px', textTransform: 'uppercase' },
   brandAccent: { color: '#f0c040', fontStyle: 'italic' },
-  title: { fontSize: '2rem', fontWeight: '900', color: '#fff', fontFamily: 'Georgia, serif', margin: '0 0 0.4rem' },
+  brandDivider: { width: '70px', height: '4px', background: 'linear-gradient(90deg, #f0c040, transparent)', borderRadius: '2px' },
+  title: { fontSize: '1.5rem', fontWeight: '600', color: '#fff', fontFamily: 'Georgia, serif', margin: '0 0 0.4rem' },
   subtitle: { fontSize: '0.88rem', color: '#4a6070', margin: '0 0 1.5rem' },
   divider: { width: '100%', height: '1px', background: 'linear-gradient(90deg, rgba(240,192,64,0.4), transparent)', marginBottom: '1.8rem' },
   errorBox: { display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(255,107,107,0.08)', border: '1px solid rgba(255,107,107,0.3)', borderRadius: '10px', padding: '0.8rem 1rem', color: '#ff6b6b', fontSize: '0.85rem', marginBottom: '1.2rem' },
