@@ -45,7 +45,7 @@ const Features = () => {
         </div>
       </div>
 
-    <section style={styles.section}>
+    <section className="features-section" style={styles.section}>
       {/* Left: Image */}
       <div style={styles.imageCol}>
         <img src={bankImage} alt="Our Values" style={styles.image} />

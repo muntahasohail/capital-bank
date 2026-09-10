@@ -39,17 +39,17 @@ const CustomerDashboard = () => {
   const pendingLoans = myLoans.filter(l => l.status === 'Pending').length;
 
   return (
-    <div style={s.wrapper}>
+    <div className="dashboard-surface" style={s.wrapper}>
       <Navbar />
       <div style={s.topSpacer}>
         <span style={s.spacerLine} />
         <span style={s.spacerDot} /><span style={s.spacerDot} /><span style={s.spacerDot} />
         <span style={s.spacerLine} />
       </div>
-      <div style={s.page}>
+      <div className="responsive-page" style={s.page}>
 
         {/* Hero Banner */}
-        <div style={s.hero}>
+        <div className="responsive-hero" style={s.hero}>
           <div style={s.heroLeft}>
             <p style={s.heroLabel}>Welcome back</p>
             <h1 style={s.heroName}>{profile?.name || user?.email?.split('@')[0] || 'Customer'}</h1>
@@ -64,7 +64,7 @@ const CustomerDashboard = () => {
               )}
             </div>
           </div>
-          <div style={s.balanceCard}>
+          <div className="responsive-balance" style={s.balanceCard}>
             <p style={s.balanceLabel}>Current Balance</p>
             <p style={s.balanceValue}>
               {showBalance ? `PKR ${Number(profile?.balance || 0).toLocaleString()}` : 'PKR ••••••'}
@@ -81,14 +81,14 @@ const CustomerDashboard = () => {
         </div>
 
         {/* Stats Row */}
-        <div style={s.statsRow}>
+        <div className="responsive-stats" style={s.statsRow}>
           {[
             { emoji: '💸', label: 'Total Transactions', value: myTransactions.length, color: '#4fc3f7' },
             { emoji: '⏳', label: 'Pending Requests', value: pendingTx, color: '#f0c040' },
             { emoji: '📋', label: 'Total Loans', value: myLoans.length, color: '#81c784' },
             { emoji: '🔄', label: 'Pending Loans', value: pendingLoans, color: '#ce93d8' },
           ].map(c => (
-            <div key={c.label} style={s.statCard}>
+            <div key={c.label} className="interactive-surface" style={s.statCard}>
               <span style={s.statEmoji}>{c.emoji}</span>
               <p style={{ ...s.statValue, color: c.color }}>{c.value}</p>
               <p style={s.statLabel}>{c.label}</p>
@@ -98,9 +98,9 @@ const CustomerDashboard = () => {
 
         {/* Action Cards */}
         <h2 style={s.sectionTitle}>⚡ Quick Actions</h2>
-        <div style={s.actionsGrid}>
+        <div className="responsive-grid" style={s.actionsGrid}>
           {actions.map(a => (
-            <div key={a.label} style={s.actionCard} onClick={() => navigate(a.path)}>
+            <div key={a.label} className="interactive-surface" style={s.actionCard} onClick={() => navigate(a.path)} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && navigate(a.path)}>
               <span style={s.actionEmoji}>{a.emoji}</span>
               <h3 style={{ ...s.actionLabel, color: a.color }}>{a.label}</h3>
               <p style={s.actionDesc}>{a.desc}</p>

@@ -34,20 +34,21 @@ const Navbar = () => {
   const links = ['Home', 'About', 'Features'];
 
   return (
-    <nav style={styles.nav}>
-      <div style={styles.brand} onClick={() => handleNavClick('Home')}>
+    <nav className="site-nav" style={styles.nav}>
+      <div className="site-nav-brand" style={styles.brand} onClick={() => handleNavClick('Home')} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && handleNavClick('Home')}>
         <span style={styles.brandName}>
           Capital Bank
           <span style={styles.brandTag}>SINCE 1997</span>
         </span>
       </div>
 
-      <button style={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>☰</button>
+      <button className="site-nav-toggle" style={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation" aria-expanded={menuOpen}>☰</button>
 
-      <ul style={{ ...styles.links, ...(menuOpen ? styles.linksOpen : {}) }}>
+      <ul className={`site-nav-links ${menuOpen ? 'site-nav-links-open' : ''}`} style={{ ...styles.links, ...(menuOpen ? styles.linksOpen : {}) }}>
         {links.map(link => (
           <li key={link} style={styles.li}>
             <a
+              className="site-nav-link"
               href="#"
               style={{ ...styles.link, ...(active === link ? styles.activeLink : {}) }}
               onClick={(e) => { e.preventDefault(); handleNavClick(link); }}
@@ -58,7 +59,7 @@ const Navbar = () => {
           </li>
         ))}
         <li style={styles.li}>
-          <Link to="/login" style={styles.loginBtn} onClick={() => setActive('Login')}>
+          <Link className="site-nav-login" to="/login" style={styles.loginBtn} onClick={() => setActive('Login')}>
             Login
           </Link>
         </li>
@@ -72,11 +73,12 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: '0 3rem',
+    padding: '0 clamp(1.1rem, 5vw, 4.5rem)',
     height: '80px',
-    background: 'linear-gradient(to right, rgba(10,20,40,0.85) 50%, rgba(10,20,40,0.3))',
+    background: 'rgba(7,17,31,0.82)',
+    backdropFilter: 'blur(18px)',
     borderBottom: '1px solid rgba(240,192,64,0.15)',
-    boxShadow: '0 4px 30px rgba(0,0,0,0.3)',
+    boxShadow: '0 12px 35px rgba(0,0,0,0.2)',
     position: 'fixed',
     top: 0,
     left: 0,
@@ -99,11 +101,11 @@ const styles = {
     flexDirection: 'column',
     lineHeight: '1',
     fontFamily: '"Palatino Linotype", Palatino, Georgia, serif',
-    fontSize: '1.333rem',
-        fontStyle: 'italic',
+    fontSize: '1.12rem',
+    fontStyle: 'italic',
     fontWeight: '800',
     color: '#ffffff',
-    letterSpacing: '2px',
+    letterSpacing: '1.5px',
     textTransform: 'uppercase',
     textShadow: '0 2px 10px rgba(0,0,0,0.4)',
   },
@@ -112,9 +114,9 @@ const styles = {
     fontStyle: 'italic',
   },
   brandTag: {
-    fontSize: '0.775rem',
-    letterSpacing: '4px',
-    color: 'rgba(240,192,64,0.7)',
+    fontSize: '0.62rem',
+    letterSpacing: '3px',
+    color: 'rgba(217,174,85,0.8)',
     fontWeight: '600',
     fontStyle: 'normal',
     marginTop: '3px',
@@ -123,7 +125,7 @@ const styles = {
   links: {
     display: 'flex',
     alignItems: 'center',
-    gap: '2.5rem',
+    gap: 'clamp(1rem, 3vw, 2.5rem)',
     listStyle: 'none',
     margin: 0,
     padding: 0,
@@ -138,11 +140,11 @@ const styles = {
     position: 'relative',
   },
   link: {
-    color: '#d0dff0',
+    color: '#b8c8d8',
     textDecoration: 'none',
-    fontSize: '1.05rem',
+    fontSize: '0.82rem',
     fontWeight: '600',
-    letterSpacing: '1.5px',
+    letterSpacing: '1.8px',
     textTransform: 'uppercase',
     padding: '4px 0',
     display: 'flex',
@@ -163,16 +165,16 @@ const styles = {
     marginTop: '4px',
   },
   loginBtn: {
-    background: 'linear-gradient(135deg, #f0c040, #c8860a)',
-    color: '#0a1428',
-    padding: '10px 26px',
-    borderRadius: '30px',
+    background: 'linear-gradient(135deg, #efd080, #c28b2e)',
+    color: '#091421',
+    padding: '10px 20px',
+    borderRadius: '8px',
     textDecoration: 'none',
     fontWeight: '800',
     fontSize: '1rem',
     letterSpacing: '1px',
     textTransform: 'uppercase',
-    boxShadow: '0 4px 15px rgba(240,192,64,0.45)',
+    boxShadow: '0 8px 22px rgba(217,174,85,0.24)',
     transition: 'transform 0.2s, box-shadow 0.2s',
   },
   hamburger: {

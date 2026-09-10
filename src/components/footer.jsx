@@ -13,7 +13,7 @@ const services = [
 
 const Footer = () => {
   return (
-    <footer style={styles.footer}>
+    <footer className="site-footer" style={styles.footer}>
       <div style={styles.topBar} />
 
       <div style={styles.container}>
